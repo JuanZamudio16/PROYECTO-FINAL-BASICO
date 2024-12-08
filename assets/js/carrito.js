@@ -1,49 +1,69 @@
-
 //DOM
 document.addEventListener('DOMContentLoaded', () => { 
     // Variables
     const baseDeDatos = [
         {
             id: 1,
-            nombre: 'Sombrero vueltiao con la bandera de Colombia, 23 vueltas',
-            precio: 250000,
-            imagen: 'assets/img/feature_prod_01.jpg',
-            categoria: 'sombreros'
+            nombre: 'Camisa Mujer',
+            precio: 50000,
+            imagen: 'images/camisa_mujer.png',
+            categoria: 'camisas'
         },
         {
             id: 2,
-            nombre: 'Sombrero vueltiao-machiembriao',
-            precio: 150000,
-            imagen: 'assets/img/sombrero4.jpg',
-            categoria: 'sombreros'
+            nombre: 'Patalon Mujer',
+            precio: 90000,
+            imagen: 'images/pantalones_mujer.png',
+            categoria: 'pantalones'
         },
         {
             id: 3,
-            nombre: 'Sombrero vueltiao colombiano 15 vueltas tricolor',
-            precio: 250000,
-            imagen: 'assets/img/feature_prod_02.jpg',
-            categoria: 'sombreros'
+            nombre: 'Zapatos Mujer',
+            precio: 150000,
+            imagen: 'images/zapatos_mujer.png',
+            categoria: 'zapatos'
         },
         {
             id: 4,
-            nombre: 'Mochila wayuu azul 6',
-            precio: 120000,
-            imagen: 'assets/img/shop_04.jpg',
-            categoria: 'mochilas'
+            nombre: 'Camisa Hombre',
+            precio: 70000,
+            imagen: 'images/camisa_hombre.png',
+            categoria: 'camisas'
         },
         {
             id: 5,
-            nombre: 'Bolso en fique',
-            precio: 120000,
-            imagen: 'assets/img/shop_03.jpg',
-            categoria: 'bolsos'
+            nombre: 'Patalon Hombre',
+            precio: 60000,
+            imagen: 'images/pantalones_hombre.png',
+            categoria: 'pantalones'
         },
         {
             id: 6,
-            nombre: 'Hamaca',
-            precio: 120000,
-            imagen: 'assets/img/category_img_02.jpg',
-            categoria: 'hamacas'
+            nombre: 'Zapatos Hombre',
+            precio: 90000,
+            imagen: 'images/zapatos_hombre.png',
+            categoria: 'zapatos'
+        },
+        {
+            id: 7,
+            nombre: 'Camisa Niño',
+            precio: 35000,
+            imagen: 'images/camisa_niño.png',
+            categoria: 'camisas'
+        },
+        {
+            id: 8,
+            nombre: 'Patalon Niño',
+            precio: 60000,
+            imagen: 'images/pantalones_niño.jpg',
+            categoria: 'pantalones'
+        },
+        {
+            id: 9,
+            nombre: 'Zapatos Niño',
+            precio: 130000,
+            imagen: 'images/zapatos_niños.png',
+            categoria: 'zapatos'
         }
     ];
 
@@ -60,10 +80,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function renderizarProductos() {
         DOMitems.innerHTML = "";
-
+//trae todos los elementos del filtro
         const filtro = filtroSelect.value;
         const productosFiltrados = baseDeDatos.filter(producto => 
-            filtro === "todas" || producto.categoria === filtro
+            filtro === "todos" || producto.categoria === filtro
         );
 
         productosFiltrados.forEach((info) => {
@@ -83,7 +103,7 @@ document.addEventListener('DOMContentLoaded', () => {
             
             const miNodoPrecio = document.createElement('p');
             miNodoPrecio.classList.add('card-text');
-            miNodoPrecio.textContent = `${info.precio}${divisa}`;
+            miNodoPrecio.textContent = `${divisa}${info.precio}`;
             
             const miNodoBoton = document.createElement('button');
             miNodoBoton.classList.add('btn', 'btn-primary');
@@ -144,7 +164,7 @@ document.getElementById('contador').textContent = visitas;
 
             const miNodo = document.createElement('li');
             miNodo.classList.add('list-group-item', 'text-right', 'mx-2');
-            miNodo.textContent = `${numeroUnidadesItem} x ${miItem[0].nombre} - ${miItem[0].precio}${divisa}`;
+            miNodo.textContent = `${numeroUnidadesItem} x ${miItem[0].nombre} - ${divisa}${miItem[0].precio}`;
             
             const miBoton = document.createElement('button');
             miBoton.classList.add('btn', 'btn-danger', 'mx-5');
